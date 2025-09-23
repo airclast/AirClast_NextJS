@@ -31,16 +31,54 @@ export function formatDate(dateInput: string | number | Date) {
 // ✅ AQI Info Helper
 export function getAQIInfo(aqi: number) {
   if (aqi <= 50) {
-    return { level: "Good", color: "green", message: "Air quality is satisfactory." }
+    return {
+      value: aqi,
+      category: "Good",
+      color: "bg-green-500",
+      description: "Air quality is satisfactory.",
+      healthAdvice: "Air quality is good. Enjoy your usual outdoor activities.",
+    }
   } else if (aqi <= 100) {
-    return { level: "Moderate", color: "yellow", message: "Acceptable air quality." }
+    return {
+      value: aqi,
+      category: "Moderate",
+      color: "bg-yellow-500",
+      description: "Acceptable air quality.",
+      healthAdvice: "Air quality is acceptable. Sensitive groups should take precautions.",
+    }
   } else if (aqi <= 150) {
-    return { level: "Unhealthy (Sensitive Groups)", color: "orange", message: "May affect sensitive groups." }
+    return {
+      value: aqi,
+      category: "Unhealthy (Sensitive Groups)",
+      color: "bg-orange-500",
+      description: "May affect sensitive groups.",
+      healthAdvice: "Sensitive groups should reduce outdoor activities.",
+    }
   } else if (aqi <= 200) {
-    return { level: "Unhealthy", color: "red", message: "Everyone may experience health effects." }
+    return {
+      value: aqi,
+      category: "Unhealthy",
+      color: "bg-red-500",
+      description: "Everyone may experience health effects.",
+      healthAdvice: "Limit outdoor activities for everyone.",
+    }
   } else if (aqi <= 300) {
-    return { level: "Very Unhealthy", color: "purple", message: "Health warnings of emergency conditions." }
+    return {
+      value: aqi,
+      category: "Very Unhealthy",
+      color: "bg-purple-500",
+      description: "Health warnings of emergency conditions.",
+      healthAdvice: "Avoid outdoor activities. Take protective measures.",
+    }
   } else {
-    return { level: "Hazardous", color: "maroon", message: "Health alert: everyone may be affected." }
+    return {
+      value: aqi,
+      category: "Hazardous",
+      color: "bg-maroon-500",
+      description: "Health alert: everyone may be affected.",
+      healthAdvice: "Stay indoors. Follow health advisories.",
+    }
   }
 }
+
+

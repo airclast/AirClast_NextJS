@@ -257,3 +257,7 @@ export const mockNotifications: Notification[] = [
     createdAt: new Date(Date.now() - 30 * 60 * 60 * 1000), // 30 hours ago
   },
 ]
+
+export const generateMockNotifications = (): Notification[] => {
+  return mockNotifications
+}

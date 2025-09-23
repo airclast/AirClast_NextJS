@@ -50,7 +50,7 @@ export function QuickStats({ measurement }: QuickStatsProps) {
   }
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 lg:grid-cols-2 gap-4">
       {stats.map((stat) => (
         <Card key={stat.label} className="bg-card">
           <CardContent className="p-4">

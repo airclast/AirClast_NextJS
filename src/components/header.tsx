@@ -25,11 +25,11 @@ export function Header() {
             <Link href="/dashboard" className="text-muted-foreground hover:text-primary transition-colors">
               Dashboard
             </Link>
-            <Link href="/map" className="text-card-foreground hover:text-primary transition-colors">
-              Map
+            <Link href="/map" className="text-muted-foreground hover:text-primary transition-colors">
+              About Us
             </Link>
             <Link href="/profile" className="text-muted-foreground hover:text-primary transition-colors">
-              Profile
+              Contact Us
             </Link>
           </nav>
 

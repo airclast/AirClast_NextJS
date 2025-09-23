@@ -59,7 +59,7 @@ export function NotificationDropdown({ notifications }: NotificationDropdownProp
           )}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-80">
+      <DropdownMenuContent align="end" className="z-[9999] w-80">
         {/* ✅ Use Label instead of Header */}
         <DropdownMenuLabel className="font-semibold flex items-center">
           Notifications

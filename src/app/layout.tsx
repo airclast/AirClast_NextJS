@@ -11,8 +11,6 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "SKY GUARD",
-  description: "NASA TEMPO integrated air quality monitoring and forecasting dashboard",
-  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -26,3 +24,4 @@ export default function RootLayout({
     </html>
   )
 }
+

@@ -13,7 +13,7 @@ export function AQIDisplay({ measurement, location }: AQIDisplayProps) {
   const aqiInfo = getAQIInfo(measurement.aqi)
 
   return (
-    <Card className="bg-card">
+    <Card className="">
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle className="text-card-foreground">Current Air Quality</CardTitle>
