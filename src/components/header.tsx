@@ -1,10 +1,13 @@
+"use client"
 import { Settings, User, LogIn, UserPlus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { NotificationDropdown } from "@/components/notification-dropdown"
 import { mockNotifications } from "@/lib/mock-data"
 import Link from "next/link"
+import { useSession } from "next-auth/react"
 
 export function Header() {
+  const {data:session}=useSession()
   return (
     <header className="bg-card border-b border-border">
       <div className="container mx-auto px-4 py-4">
