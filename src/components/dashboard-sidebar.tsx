@@ -25,12 +25,12 @@ const sidebarItems = [
     icon: Home,
     description: "Dashboard overview",
   },
-  {
-    title: "Current Conditions",
-    href: "/dashboard/current",
-    icon: Cloud,
-    description: "Real-time weather & AQI",
-  },
+  // {
+  //   title: "Current Conditions",
+  //   href: "/dashboard/current",
+  //   icon: Cloud,
+  //   description: "Real-time weather & AQI",
+  // },
   {
     title: "Hourly Forecast",
     href: "/dashboard/hourly",
@@ -49,15 +49,15 @@ const sidebarItems = [
     icon: Wind,
     description: "Air quality monitoring",
   },
+  // {
+  //   title: "Temperature",
+  //   href: "/dashboard/temperature",
+  //   icon: Thermometer,
+  //   description: "Temperature trends",
+  // },
   {
-    title: "Temperature",
-    href: "/dashboard/temperature",
-    icon: Thermometer,
-    description: "Temperature trends",
-  },
-  {
-    title: "Precipitation",
-    href: "/dashboard/precipitation",
+    title: "AI Chat bot",
+    href: "/dashboard/chat-bot",
     icon: Droplets,
     description: "Rain & snow data",
   },
@@ -75,7 +75,7 @@ const sidebarItems = [
   },
   {
     title: "Alerts",
-    href: "/dashboard/alerts",
+    href: "/notifications",
     icon: Bell,
     description: "Weather alerts & warnings",
   },
@@ -87,7 +87,7 @@ const sidebarItems = [
   },
   {
     title: "Settings",
-    href: "/dashboard/settings",
+    href: "/settings",
     icon: Settings,
     description: "App settings",
   },

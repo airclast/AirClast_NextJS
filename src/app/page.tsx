@@ -6,6 +6,13 @@ import { QuickStats } from "@/components/quick-stats"
 import { mockUserLocations, generateMockAirQualityData } from "@/lib/mock-data"
 import { Header } from "@/components/header"
 import { WeatherCarousel } from "@/components/weather-carousel"
+// import Footer from "./footer/page"
+import WeatherDashboard from "@/components/weather-dashboard"
+import WeatherDetails from "@/components/sections/weather-details"
+import MonthlyCalendar from "@/components/sections/monthly-calendar"
+import WeatherTrends from "@/components/sections/weather-trends"
+// import { WeatherHourlySection } from "@/components/weather-hourly-section"
+
 
 export default function HomePage() {
   // Get current data for primary location
@@ -17,6 +24,11 @@ export default function HomePage() {
     <div className="min-h-screen bg-background w-[95%] mx-auto">
       <Header />
       {/* <WeatherDashboardBanner /> */}
+      {/* <WeatherHourlySection /> */}
+      <WeatherDashboard />
+      <WeatherDetails />
+      <MonthlyCalendar />
+      <WeatherTrends />
 
       <div className="bg-background">
         <main className="container mx-auto px-4 py-8 space-y-8">
@@ -61,6 +73,8 @@ export default function HomePage() {
           </div>
         </main>
       </div>
+
+      {/* <Footer />   */}
     </div>
   )
 }

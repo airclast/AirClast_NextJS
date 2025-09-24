@@ -1,7 +1,7 @@
-"use client"
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+"use client";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,40 +9,42 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import type { Notification } from "@/lib/types"
-import { Bell, Settings, AlertTriangle, Info } from "lucide-react"
-import { formatTimestamp } from "@/lib/utils"
+} from "@/components/ui/dropdown-menu";
+import type { Notification } from "@/lib/types";
+import { Bell, Settings, AlertTriangle, Info } from "lucide-react";
+import { formatTimestamp } from "@/lib/utils";
 
 interface NotificationDropdownProps {
-  notifications: Notification[]
+  notifications: Notification[];
 }
 
-export function NotificationDropdown({ notifications }: NotificationDropdownProps) {
-  const [notificationList, setNotificationList] = useState(notifications)
-  const unreadCount = notificationList.filter((n) => !n.isRead).length
-  const recentNotifications = notificationList.slice(0, 5)
+export function NotificationDropdown({
+  notifications,
+}: NotificationDropdownProps) {
+  const [notificationList, setNotificationList] = useState(notifications);
+  const unreadCount = notificationList.filter((n) => !n.isRead).length;
+  const recentNotifications = notificationList.slice(0, 5);
 
   const markAsRead = (notificationId: string) => {
     setNotificationList(
       notificationList.map((notif) =>
         notif.id === notificationId ? { ...notif, isRead: true } : notif
       )
-    )
-  }
+    );
+  };
 
   const getTypeIcon = (type: string) => {
     switch (type) {
       case "air-quality-alert":
-        return <AlertTriangle className="w-4 h-4 text-orange-500" />
+        return <AlertTriangle className="w-4 h-4 text-orange-500" />;
       case "forecast-update":
-        return <Info className="w-4 h-4 text-blue-500" />
+        return <Info className="w-4 h-4 text-blue-500" />;
       case "system-maintenance":
-        return <Settings className="w-4 h-4 text-gray-500" />
+        return <Settings className="w-4 h-4 text-gray-500" />;
       default:
-        return <Bell className="w-4 h-4" />
+        return <Bell className="w-4 h-4" />;
     }
-  }
+  };
 
   return (
     <DropdownMenu>
@@ -59,9 +61,8 @@ export function NotificationDropdown({ notifications }: NotificationDropdownProp
           )}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="z-[9999] w-80">
-        {/* ✅ Use Label instead of Header */}
-        <DropdownMenuLabel className="font-semibold flex items-center">
+      <DropdownMenuContent align="end" className="w-80">
+        <DropdownMenuLabel className="font-semibold">
           Notifications
           {unreadCount > 0 && (
             <Badge variant="secondary" className="ml-2 text-xs">
@@ -87,7 +88,9 @@ export function NotificationDropdown({ notifications }: NotificationDropdownProp
                   {getTypeIcon(notification.type)}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center space-x-2 mb-1">
-                      <p className="text-sm font-medium truncate">{notification.title}</p>
+                      <p className="text-sm font-medium truncate">
+                        {notification.title}
+                      </p>
                       {!notification.isRead && (
                         <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0" />
                       )}
@@ -112,5 +115,5 @@ export function NotificationDropdown({ notifications }: NotificationDropdownProp
         )}
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }
