@@ -7,6 +7,7 @@ declare module 'next-auth' {
   interface User {
     accessToken?: string;
     role?: string;
+    emailVerified?: Date | null;
   }
   interface Session {
     user: {
