@@ -71,7 +71,7 @@ export default function WeatherDashboard() {
   }
 
   return (
-    <Card className="weather-card-hover bg-card/80 backdrop-blur-md border-border/50 p-6 shadow-lg">
+    <Card className="weather-card-hover bg-card/80 backdrop-blur-md border-border/50 p-6 shadow-lg my-8">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6">
         <div className="flex items-center gap-4">
           <h2 className="text-xl font-semibold text-foreground animate-slide-in">Hourly</h2>

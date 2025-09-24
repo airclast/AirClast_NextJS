@@ -5,12 +5,14 @@ import { LocationSelector } from "@/components/location-selector"
 import { QuickStats } from "@/components/quick-stats"
 import { mockUserLocations, generateMockAirQualityData } from "@/lib/mock-data"
 import { Header } from "@/components/header"
-import { WeatherCarousel } from "@/components/weather-carousel"
+// import { WeatherCarousel } from "@/components/weather-carousel"
 // import Footer from "./footer/page"
 import WeatherDashboard from "@/components/weather-dashboard"
-import WeatherDetails from "@/components/sections/weather-details"
+// import WeatherDetails from "@/components/sections/weather-details"
 import MonthlyCalendar from "@/components/sections/monthly-calendar"
 import WeatherTrends from "@/components/sections/weather-trends"
+import WeatherDetailsCarousel from "@/components/sections/weather-details-carousel"
+import WeatherBanner from "@/components/weather-banner"
 // import { WeatherHourlySection } from "@/components/weather-hourly-section"
 
 
@@ -21,18 +23,14 @@ export default function HomePage() {
   const chartData = generateMockAirQualityData(24)
 
   return (
-    <div className="min-h-screen bg-background w-[95%] mx-auto">
+    <div className="min-h-screen bg-background">
       <Header />
       {/* <WeatherDashboardBanner /> */}
       {/* <WeatherHourlySection /> */}
-      <WeatherDashboard />
-      <WeatherDetails />
-      <MonthlyCalendar />
-      <WeatherTrends />
 
-      <div className="bg-background">
-        <main className="container mx-auto px-4 py-8 space-y-8">
-          {/* Location and Quick Overview */}
+      <div className="bg-background  w-[95%] mx-auto py-10">
+        {/* <main className="container mx-auto px-4 py-8 space-y-8">
+          Location and Quick Overview
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div>
               <h1 className="text-3xl font-bold text-foreground mb-2">Air Quality Dashboard</h1>
@@ -42,24 +40,25 @@ export default function HomePage() {
           </div>
 
 
-          {/* Main AQI Display */}
+     
+          Main AQI Display
           <div className="">
             <div className="grid grid-cols-2 gap-3">
               <AQIDisplay measurement={currentAirQuality} location={primaryLocation} />
-          {/* Quick Stats */}
+          Quick Stats
           <QuickStats measurement={currentAirQuality} />
             </div>
           </div>
 
           <WeatherCarousel />
 
-          {/* Air Quality Trend Chart */}
+          Air Quality Trend Chart
           <div className="bg-card rounded-lg border p-6">
             <h2 className="text-xl font-semibold text-card-foreground mb-4">24-Hour Air Quality Trend</h2>
             <AirQualityChart data={chartData} />
           </div>
 
-          {/* Health Advisory */}
+          Health Advisory
           <div className="bg-card rounded-lg border p-6">
             <h2 className="text-xl font-semibold text-card-foreground mb-4">Health Advisory</h2>
             <div className="prose prose-sm max-w-none text-card-foreground">
@@ -71,7 +70,14 @@ export default function HomePage() {
               </ul>
             </div>
           </div>
-        </main>
+        </main>  */}
+        <WeatherBanner />
+
+         <WeatherDashboard />
+      {/* <WeatherDetails /> */}
+      <WeatherDetailsCarousel />
+      <MonthlyCalendar />
+      <WeatherTrends />
       </div>
 
       {/* <Footer />   */}

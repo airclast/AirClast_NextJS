@@ -472,7 +472,7 @@ export function WeatherHourlySection() {
           </CardContent>
         </Card>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8 ">
           {[
             {
               icon: Wind,
@@ -505,7 +505,7 @@ export function WeatherHourlySection() {
           ].map((item, index) => (
             <Card
               key={index}
-              className="bg-white/10 backdrop-blur-xl border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              className="bg-white/10 backdrop-blur-xl border-white/20  shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
               <CardContent className="p-6">
                 <div className={`flex items-center gap-4 p-4 rounded-lg bg-gradient-to-br ${item.bg}`}>

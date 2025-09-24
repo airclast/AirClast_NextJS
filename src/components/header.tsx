@@ -9,7 +9,7 @@ import { useSession } from "next-auth/react"
 export function Header() {
   const {data:session}=useSession()
   return (
-    <header className="bg-card border-b border-border">
+    <header className="bg-card border-b border-border fixed w-full z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">

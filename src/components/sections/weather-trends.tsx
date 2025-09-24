@@ -60,7 +60,7 @@ export default function WeatherTrends() {
   return (
     <Card className="p-6">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold">Weather trends</h2>
         <div className="flex gap-4">
           <Button
@@ -90,7 +90,7 @@ export default function WeatherTrends() {
                 "flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200",
                 tab.active
                   ? "bg-yellow-500 text-black hover:bg-yellow-400"
-                  : "bg-slate-800/10 text-slate-800 hover:bg-slate-700 hover:text-white",
+                  : "bg-slate-800/10 text-slate-800 hover:bg-slate-700 ",
               )}
               onClick={() => setActiveTab(tab.id)}
             >
@@ -157,8 +157,11 @@ export default function WeatherTrends() {
         ))}
       </div>
 
+      <div className="grid grid-cols-2 gap-4">
+
+
       {/* Bottom Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 border rounded-lg p-4">
         {/* Climate Information */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Climate information</h3>
@@ -198,7 +201,7 @@ export default function WeatherTrends() {
       </div>
 
       {/* Daily Summary Table */}
-      <div className="mt-8">
+      <div className="mt-8 border rounded-lg p-4">
         <h3 className="text-lg font-semibold mb-4">Daily Summary (Last 12 months)</h3>
         <div className="grid grid-cols-4 gap-4">
           <div className=" font-medium">Metric</div>
@@ -216,6 +219,8 @@ export default function WeatherTrends() {
           ))}
         </div>
       </div>
+      </div>
+
     </Card>
   )
 }

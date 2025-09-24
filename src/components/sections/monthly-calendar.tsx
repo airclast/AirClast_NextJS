@@ -73,14 +73,14 @@ export default function MonthlyCalendar() {
   const [selectedYear] = useState("2025")
 
   return (
-    <Card className="">
+    <Card className="my-8 p-4">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold">Monthly</h2>
       </div>
 
       {/* Month Navigation */}
-      <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
+      <div className="flex gap-2 overflow-x-auto pb-2">
         {months.map((month, index) => (
           <Button
             key={month}
@@ -111,7 +111,7 @@ export default function MonthlyCalendar() {
         {/* Week Days Header */}
         <div className="grid grid-cols-7 gap-2 mb-4">
           {weekDays.map((day) => (
-            <div key={day} className="text-center  text-sm font-medium py-2">
+            <div key={day} className="text-center border rounded-lg bg-slate-800/5 shadow-sm text-sm font-medium py-2">
               {day}
             </div>
           ))}
@@ -123,8 +123,8 @@ export default function MonthlyCalendar() {
             <div
               key={index}
               className={cn(
-                "relative p-3 rounded-lg transition-all duration-200",
-                day.isToday && "ring-2 ring-yellow-500 ",
+                "relative p-3 rounded-lg transition-all duration-200 bg-slate-800/5 shadow-sm border",
+                day.isToday && "ring-2 ring-yellow-500 shadow-sm shadow-yellow-500",
                 (day.prevMonth || day.nextMonth) && "opacity-50",
               )}
             >
@@ -138,8 +138,8 @@ export default function MonthlyCalendar() {
 
               {/* Temperature */}
               <div className="text-center">
-                <div className="text-sm font-semibold text-white">{day.high}°</div>
-                <div className="text-xs text-slate-400">{day.low}°</div>
+                <div className="text-sm font-semibold">{day.high}°</div>
+                <div className="text-xs">{day.low}°</div>
               </div>
             </div>
           ))}
