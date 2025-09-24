@@ -1,10 +1,8 @@
-// lib/auth.ts
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import axios from "axios";
-import type { NextAuthConfig } from "next-auth";
+import type { NextAuthOptions } from "next-auth";
 
-// Extend types
 declare module "next-auth" {
   interface User {
     accessToken?: string;
@@ -30,7 +28,7 @@ declare module "next-auth" {
   }
 }
 
-export const authOptions: NextAuthConfig = {
+export const authOptions: NextAuthOptions = {
   providers: [
     Credentials({
       name: "Credentials",
@@ -39,11 +37,7 @@ export const authOptions: NextAuthConfig = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const { name, email, password } = credentials as {
-          name: string;
-          email: string;
-          password: string;
-        };
+        const { name, email, password } = credentials as { name: string; email: string; password: string };
 
         try {
           const res = await axios.post(
@@ -88,13 +82,10 @@ export const authOptions: NextAuthConfig = {
         role: typeof token.role === "string" ? token.role : "",
         emailVerified: null,
       };
-      session.accessToken =
-        typeof token.accessToken === "string" ? token.accessToken : undefined;
+      session.accessToken = typeof token.accessToken === "string" ? token.accessToken : undefined;
       return session;
     },
   },
 };
 
-// Export the handler
-const handler = NextAuth(authOptions);
-export { handler };
+export const handler = NextAuth(authOptions);
