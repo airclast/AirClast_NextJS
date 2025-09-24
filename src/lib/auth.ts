@@ -33,7 +33,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         try {
           const res = await axios.post(
             `https://sky-guard.vercel.app/api/v1/auth/login`,
-            { name,email, password }
+            { name,email, password },
+            {withCredentials:true}
           );
           const user = res?.data?.data;
           if(!user)return null;
