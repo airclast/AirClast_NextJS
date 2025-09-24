@@ -11,10 +11,12 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Eye, EyeOff, Mail, Lock, User } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import UseAxiosNormal from "../hook/useAxiosNormal"
 
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const axiosnormal=UseAxiosNormal()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,10 +25,30 @@ export default function RegisterPage() {
     agreeToTerms: false,
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     // Handle registration logic here
-    console.log("Registration attempt:", formData)
+    
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+    const userData = {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        
+      }
+      console.log("Registration attempt:", userData)
+      try {
+        const response = await axiosnormal.post("/users/register", userData)
+        console.log("Response from server:", response.data)
+        if (response?.data) {
+          console.log("Registration successful:", response.data)
+        } 
+      } catch (error) {
+        console.error("Error Signing Up:", error)
+      } 
   }
 
   const handleInputChange = (field: string, value: string | boolean) => {

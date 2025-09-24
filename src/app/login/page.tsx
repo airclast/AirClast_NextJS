@@ -10,16 +10,42 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Eye, EyeOff, Mail, Lock } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import UseAxiosNormal from "../hook/useAxiosNormal"
+import { signIn, useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState("")
+  const {data:session}=useSession()
+const nav=useRouter()
   const [password, setPassword] = useState("")
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const axiosInstanceNormal=UseAxiosNormal()
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     // Handle login logic here
-    console.log("Login attempt:", { email, password })
+   // console.log("Login attempt:", { email, password })
+    try {
+        const res = await axiosInstanceNormal.post(`/auth/login`,{ email, password })
+
+        if (res?.data) {
+          const userInfo = res?.data
+
+          await signIn("credentials", {
+            email,
+            password,
+            redirect: false,
+          })
+          console.log("Login successful:", userInfo)
+          nav.push("/")
+        } else if (!res?.data) {
+          console.error("Login failed")
+          
+        }
+      } catch (error) {
+        console.error("Error during login:", error)
+        
+      } 
   }
 
   return (
