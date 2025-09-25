@@ -37,12 +37,12 @@ const sidebarItems = [
     icon: BarChart3,
     description: "48-hour detailed forecast",
   },
-  {
-    title: "Daily Forecast",
-    href: "/dashboard/daily",
-    icon: Activity,
-    description: "10-day weather outlook",
-  },
+  // {
+  //   title: "Daily Forecast",
+  //   href: "/dashboard/daily",
+  //   icon: Activity,
+  //   description: "10-day weather outlook",
+  // },
   {
     title: "Air Quality",
     href: "/dashboard/air-quality",
@@ -57,16 +57,16 @@ const sidebarItems = [
   // },
   {
     title: "AI Chat bot",
-    href: "/dashboard/chat-bot",
+    href: "/chat-bot",
     icon: Droplets,
     description: "Rain & snow data",
   },
-  {
-    title: "UV Index",
-    href: "/dashboard/uv",
-    icon: Sun,
-    description: "UV radiation levels",
-  },
+  // {
+  //   title: "UV Index",
+  //   href: "/dashboard/uv",
+  //   icon: Sun,
+  //   description: "UV radiation levels",
+  // },
   {
     title: "Interactive Map",
     href: "/map",
@@ -98,7 +98,7 @@ export function DashboardSidebar() {
 
   return (
     <div className="flex h-screen w-64 flex-col bg-card border-r border-border">
-      {/* Logo/Brand */}
+      {/* Logo/Brand
       <div className="flex h-16 items-center px-6 border-b border-border">
         <Link href="/" className="flex items-center space-x-2">
           <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
@@ -106,7 +106,7 @@ export function DashboardSidebar() {
           </div>
           <span className="text-lg font-semibold text-foreground">AirWatch</span>
         </Link>
-      </div>
+      </div> */}
 
       {/* Navigation */}
       <nav className="flex-1 overflow-y-auto py-4">
@@ -147,6 +147,7 @@ export function DashboardSidebar() {
           </div>
         </div>
       </div>
+      
     </div>
   )
 }

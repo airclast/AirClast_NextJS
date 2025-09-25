@@ -78,7 +78,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         name: token.name!,
         email: token.email!,
         role: typeof token.role === 'string' ? token.role : '',
-        emailVerified: null, // Add this property to satisfy AdapterUser type
       };
       session.accessToken = typeof token.accessToken === 'string' ? token.accessToken : undefined; // optional
       return session;
