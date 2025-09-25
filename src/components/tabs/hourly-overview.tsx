@@ -68,7 +68,7 @@ export default function HourlyOverview({ viewMode }: HourlyOverviewProps) {
         {hourlyData.slice(0, 12).map((hour, index) => {
           const IconComponent = hour.icon
           return (
-            <div key={index} className="flex flex-col items-center space-y-2 min-w-0 border p-4 rounded-lg ">
+            <div key={index} className="flex flex-col items-center space-y-2 min-w-0 border p-4 rounded-lg">
               <span className="text-xs text-muted-foreground">{hour.time}</span>
               <IconComponent className="w-6 h-6 text-primary" />
               <span className="text-sm font-semibold">{hour.temp}°</span>

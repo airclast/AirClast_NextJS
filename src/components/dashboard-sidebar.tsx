@@ -57,7 +57,7 @@ const sidebarItems = [
   // },
   {
     title: "AI Chat bot",
-    href: "/chat-bot",
+    href: "/dashboard/chat",
     icon: Droplets,
     description: "Rain & snow data",
   },
@@ -98,15 +98,15 @@ export function DashboardSidebar() {
 
   return (
     <div className="flex h-screen w-64 flex-col bg-card border-r border-border">
-      {/* Logo/Brand
+      {/* Logo/Brand */}
       <div className="flex h-16 items-center px-6 border-b border-border">
         <Link href="/" className="flex items-center space-x-2">
-          <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
+          <div className="h-8 w-8 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
             <Cloud className="h-5 w-5 text-primary-foreground" />
           </div>
           <span className="text-lg font-semibold text-foreground">AirWatch</span>
         </Link>
-      </div> */}
+      </div>
 
       {/* Navigation */}
       <nav className="flex-1 overflow-y-auto py-4">
@@ -135,8 +135,8 @@ export function DashboardSidebar() {
         </div>
       </nav>
 
-      {/* Bottom section */}
-      <div className="border-t border-border p-4">
+     {/* Bottom section */}
+      <div className="border-t p-4">
         <div className="flex items-center space-x-3">
           <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
             <User className="h-4 w-4 text-primary" />

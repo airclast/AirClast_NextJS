@@ -115,7 +115,7 @@ export default function WeatherDashboard() {
               className={cn(
                 "text-xs px-3 py-2 rounded-md transition-all duration-200 weather-button animate-slide-in",
                 activeTab === tab.id
-                  ? "bg-primary text-primary-foreground shadow-sm scale-105"
+                  ? "bg-yellow-500 text-black shadow-sm scale-105 hover:bg-yellow-400"
                   : "text-muted-foreground hover:text-foreground hover:bg-secondary/50 hover:scale-105",
               )}
               style={{ animationDelay: `${index * 50}ms` }}

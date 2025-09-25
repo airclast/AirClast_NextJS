@@ -1,86 +1,45 @@
-import { AQIDisplay } from "@/components/aqi-display"
-// import { WeatherDashboardBanner } from "@/components/weather-dashboard-banner"
-import { AirQualityChart } from "@/components/air-quality-chart"
-import { LocationSelector } from "@/components/location-selector"
-import { QuickStats } from "@/components/quick-stats"
-import { mockUserLocations, generateMockAirQualityData } from "@/lib/mock-data"
-import { Header } from "@/components/header"
-// import { WeatherCarousel } from "@/components/weather-carousel"
-// import Footer from "./footer/page"
-import WeatherDashboard from "@/components/weather-dashboard"
-// import WeatherDetails from "@/components/sections/weather-details"
-import MonthlyCalendar from "@/components/sections/monthly-calendar"
-import WeatherTrends from "@/components/sections/weather-trends"
-import WeatherDetailsCarousel from "@/components/sections/weather-details-carousel"
-import WeatherBanner from "@/components/weather-banner"
-// import { WeatherHourlySection } from "@/components/weather-hourly-section"
+"use client";
 
+import Link from "next/link";
+// import { AQIDisplay } from "@/components/aqi-display";
+// import { AirQualityChart } from "@/components/air-quality-chart";
+// import { LocationSelector } from "@/components/location-selector";
+// import { QuickStats } from "@/components/quick-stats";
+import { mockUserLocations, generateMockAirQualityData } from "@/lib/mock-data";
+import { Header } from "@/components/header";
+import WeatherDashboard from "@/components/weather-dashboard";
+import MonthlyCalendar from "@/components/sections/monthly-calendar";
+import WeatherTrends from "@/components/sections/weather-trends";
+import WeatherDetailsCarousel from "@/components/sections/weather-details-carousel";
+import WeatherBanner from "@/components/weather-banner";
+import { Bot } from "lucide-react";
 
 export default function HomePage() {
   // Get current data for primary location
-  const primaryLocation = mockUserLocations.find((loc) => loc.isPrimary)
-  const currentAirQuality = generateMockAirQualityData(1)[0]
-  const chartData = generateMockAirQualityData(24)
+  // const primaryLocation = mockUserLocations.find((loc) => loc.isPrimary);
+  // const currentAirQuality = generateMockAirQualityData(1)[0];
+  // const chartData = generateMockAirQualityData(24);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
       <Header />
-      {/* <WeatherDashboardBanner /> */}
-      {/* <WeatherHourlySection /> */}
 
-      <div className="bg-background  w-[95%] mx-auto py-10">
-        {/* <main className="container mx-auto px-4 py-8 space-y-8">
-          Location and Quick Overview
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-            <div>
-              <h1 className="text-3xl font-bold text-foreground mb-2">Air Quality Dashboard</h1>
-              <p className="text-muted-foreground">Real-time air quality monitoring with NASA TEMPO satellite data</p>
-            </div>
-            <LocationSelector currentLocation={primaryLocation} />
-          </div>
-
-
-     
-          Main AQI Display
-          <div className="">
-            <div className="grid grid-cols-2 gap-3">
-              <AQIDisplay measurement={currentAirQuality} location={primaryLocation} />
-          Quick Stats
-          <QuickStats measurement={currentAirQuality} />
-            </div>
-          </div>
-
-          <WeatherCarousel />
-
-          Air Quality Trend Chart
-          <div className="bg-card rounded-lg border p-6">
-            <h2 className="text-xl font-semibold text-card-foreground mb-4">24-Hour Air Quality Trend</h2>
-            <AirQualityChart data={chartData} />
-          </div>
-
-          Health Advisory
-          <div className="bg-card rounded-lg border p-6">
-            <h2 className="text-xl font-semibold text-card-foreground mb-4">Health Advisory</h2>
-            <div className="prose prose-sm max-w-none text-card-foreground">
-              <p>Based on current air quality conditions in your area, here are our recommendations:</p>
-              <ul className="mt-3 space-y-2">
-                <li>• Outdoor activities are generally safe for most people</li>
-                <li>• Sensitive individuals should consider limiting prolonged outdoor exertion</li>
-                <li>• Consider using air purifiers indoors</li>
-              </ul>
-            </div>
-          </div>
-        </main>  */}
+      <div className="bg-background w-[95%] mx-auto py-10">
         <WeatherBanner />
-
-         <WeatherDashboard />
-      {/* <WeatherDetails /> */}
-      <WeatherDetailsCarousel />
-      <MonthlyCalendar />
-      <WeatherTrends />
+        <WeatherDashboard />
+        <WeatherDetailsCarousel />
+        <MonthlyCalendar />
+        <WeatherTrends />
       </div>
 
-      {/* <Footer />   */}
+      {/* Floating Chatbot Button */}
+      <Link href="/dashboard/chat" passHref>
+        <div className="fixed bottom-6 right-6 z-50">
+          <div className="h-14 w-14 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
+            <Bot className="h-7 w-7 text-white" />
+          </div>
+        </div>
+      </Link>
     </div>
-  )
+  );
 }

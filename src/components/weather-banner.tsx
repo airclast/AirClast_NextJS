@@ -14,7 +14,7 @@ export default function WeatherBanner() {
   }, []);
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-700 p-10 my-10 animate-fade-in-up">
+    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 p-10 my-10 animate-fade-in-up">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-4 right-8 w-24 h-24 bg-white/20 rounded-full blur-xl animate-pulse-subtle"></div>

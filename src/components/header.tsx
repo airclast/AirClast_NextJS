@@ -14,7 +14,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-sm">SG</span>
               </div>
               <span className="font-bold text-lg text-card-foreground">SKY GUARD</span>
@@ -48,7 +48,7 @@ export function Header() {
               </Button>
             </Link>
             <Link href="/register">
-              <Button size="sm" className="hidden sm:flex items-center space-x-2">
+              <Button size="sm" className="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-cyan-500">
                 <UserPlus className="h-4 w-4" />
                 <span>Register</span>
               </Button>
