@@ -1,12 +1,13 @@
-// lib/auth.ts
-import NextAuth from 'next-auth';
-import Credentials from 'next-auth/providers/credentials';
-import axios from 'axios';
+import NextAuth from "next-auth";
+import Credentials from "next-auth/providers/credentials";
+import axios from "axios";
+import type { NextAuthOptions } from "next-auth";
 
-declare module 'next-auth' {
+declare module "next-auth" {
   interface User {
     accessToken?: string;
     role?: string;
+    emailVerified?: Date | null;
   }
   interface Session {
     user: {
@@ -14,46 +15,48 @@ declare module 'next-auth' {
       name?: string;
       email?: string;
       role?: string;
+      emailVerified?: Date | null;
     };
+    accessToken?: string;
+  }
+  interface JWT {
+    id?: string;
+    name?: string;
+    email?: string;
+    role?: string;
     accessToken?: string;
   }
 }
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+export const authOptions: NextAuthOptions = {
   providers: [
     Credentials({
-      name: 'Credentials',
+      name: "Credentials",
       credentials: {
-        email: { label: 'Email', type: 'email', placeholder: 'you@example.com' },
-        password: { label: 'Password', type: 'password' },
+        email: { label: "Email", type: "email", placeholder: "you@example.com" },
+        password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const { name,email, password } = credentials as { name:string; email: string; password: string };
+        const { name, email, password } = credentials as { name: string; email: string; password: string };
 
         try {
           const res = await axios.post(
             `https://sky-guard.vercel.app/api/v1/auth/login`,
-            { name,email, password },
-            {withCredentials:true}
+            { name, email, password },
+            { withCredentials: true }
           );
           const user = res?.data?.data;
-          if(!user)return null;
-          
-          if (user) {
-            
-            return {
-              id: user.user._id,
-              name: user.user.name,
-              email: user.user.email,
-              role: user.user.role,
-              accessToken:user.accessToken
-            };
-          } else {
-            
-            return null;
-          }
+          if (!user) return null;
+
+          return {
+            id: user.user._id,
+            name: user.user.name,
+            email: user.user.email,
+            role: user.user.role,
+            accessToken: user.accessToken,
+          };
         } catch (error) {
-          console.error('Error during authorization:', error);
+          console.error("Error during authorization:", error);
           return null;
         }
       },
@@ -62,7 +65,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async jwt({ token, user }) {
-      // On initial login, user exists
       if (user) {
         token.id = user.id;
         token.name = user.name;
@@ -74,14 +76,20 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     },
     async session({ session, token }) {
       session.user = {
-        id: typeof token.id === 'string' ? token.id : String(token.id ?? ''),
+        id: typeof token.id === "string" ? token.id : String(token.id ?? ""),
         name: token.name!,
         email: token.email!,
+<<<<<<< HEAD
         role: typeof token.role === 'string' ? token.role : '',
+=======
+        role: typeof token.role === "string" ? token.role : "",
+        emailVerified: null,
+>>>>>>> 8b93e1db2ae891a025e9cf4321554365d8ae8517
       };
-      session.accessToken = typeof token.accessToken === 'string' ? token.accessToken : undefined; // optional
+      session.accessToken = typeof token.accessToken === "string" ? token.accessToken : undefined;
       return session;
     },
-    
   },
-});
+};
+
+export const handler = NextAuth(authOptions);
