@@ -111,8 +111,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-white mb-1">Email</h3>
-                    <p className="text-slate-400 text-sm">support@msnweather.com</p>
-                    <p className="text-slate-400 text-sm">info@msnweather.com</p>
+                    <p className="text-slate-400 text-sm">support@skyweather.com</p>
+                    <p className="text-slate-400 text-sm">info@skyweather.com</p>
                   </div>
                 </div>
 
@@ -133,7 +133,7 @@ export default function ContactPage() {
               <h3 className="font-semibold text-white mb-4">Quick Links</h3>
               <div className="space-y-3">
                 <Link href="/about" className="block text-slate-400 hover:text-blue-400 transition-colors text-sm">
-                  About MSN Weather
+                  About SKY Guard Weather
                 </Link>
                 <Link href="#" className="block text-slate-400 hover:text-blue-400 transition-colors text-sm">
                   API Documentation

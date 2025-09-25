@@ -30,7 +30,7 @@ export default function AboutPage() {
           <div className="lg:col-span-3">
             <div className="sticky top-8 space-y-8">
               <div>
-                <h1 className="text-3xl font-bold text-white mb-2">MSN Weather</h1>
+                <h1 className="text-3xl font-bold text-white mb-2">SKY Guard Weather</h1>
                 <p className="text-lg text-slate-400 mb-6">Advanced Weather Intelligence Platform</p>
                 <p className="text-slate-300 leading-relaxed">
                   Delivering comprehensive weather insights through cutting-edge technology and intuitive design.
@@ -83,7 +83,7 @@ export default function AboutPage() {
           <div className="lg:col-span-9 space-y-12">
             <section className="animate-fade-in-up">
               <p className="text-xl text-slate-300 leading-relaxed mb-8">
-                MSN Weather is a comprehensive weather intelligence platform that combines real-time meteorological data
+                SKY Guard Weather is a comprehensive weather intelligence platform that combines real-time meteorological data
                 with advanced visualization techniques to deliver accurate, actionable weather insights. Our platform
                 serves millions of users worldwide with precise forecasts, interactive maps, and intelligent weather
                 analysis.
