@@ -28,10 +28,10 @@ export function Header() {
             <Link href="/dashboard" className="text-muted-foreground hover:text-primary transition-colors">
               Dashboard
             </Link>
-            <Link href="/map" className="text-muted-foreground hover:text-primary transition-colors">
+            <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
               About Us
             </Link>
-            <Link href="/profile" className="text-muted-foreground hover:text-primary transition-colors">
+            <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
               Contact Us
             </Link>
           </nav>

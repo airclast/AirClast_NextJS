@@ -13,6 +13,8 @@ import WeatherTrends from "@/components/sections/weather-trends";
 import WeatherDetailsCarousel from "@/components/sections/weather-details-carousel";
 import WeatherBanner from "@/components/weather-banner";
 import { Bot } from "lucide-react";
+import Footer from "@/components/footer";
+import WeatherMap from "@/components/weather-map";
 
 export default function HomePage() {
   // Get current data for primary location
@@ -30,7 +32,9 @@ export default function HomePage() {
         <WeatherDetailsCarousel />
         <MonthlyCalendar />
         <WeatherTrends />
+        <WeatherMap />
       </div>
+        <Footer />
 
       {/* Floating Chatbot Button */}
       <Link href="/dashboard/chat" passHref>
