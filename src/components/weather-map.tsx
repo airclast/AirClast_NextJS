@@ -87,7 +87,7 @@ export default function WeatherMap() {
   }, [])
 
   return (
-    <div className="backdrop-blur-sm rounded-xl border border-slate-700/40  my-6">
+    <div className="backdrop-blur-sm rounded-xl shadow-sm  my-6">
       {/* Header */}
       <div className="p-4 border-b border-slate-700/50">
         <h2 className="text-xl font-semibold">Weather maps</h2>

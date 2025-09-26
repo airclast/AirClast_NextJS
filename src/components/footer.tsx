@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-blue-500 to-cyan-500 mt-16">
+    <footer className="bg-gradient-to-r from-blue-500 to-cyan-500 mt-2">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}

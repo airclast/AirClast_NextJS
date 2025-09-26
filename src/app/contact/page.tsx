@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import Footer from "@/components/footer"
+import { Header } from "@/components/header"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -44,28 +45,12 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen weather-gradient">
-      {/* Navigation Header */}
-      <header className="border-b border-slate-700/50 bg-slate-900/50 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-white hover:text-blue-400 transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Weather
-          </Link>
-          <nav className="flex items-center gap-6">
-            <Link href="/about" className="text-slate-300 hover:text-white transition-colors">
-              About
-            </Link>
-            <Link href="/contact" className="text-blue-400 font-medium">
-              Contact
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
-      <div className="max-w-6xl mx-auto px-4 py-12">
+      <div className="max-w-6xl mx-auto px-4 pt-18 pb-4">
         <div className="text-center mb-12 animate-fade-in-up">
-          <h1 className="text-4xl font-bold text-white mb-4">Get in Touch</h1>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <h1 className="text-4xl font-bold  mb-4">Get in Touch</h1>
+          <p className="text-xl max-w-2xl mx-auto leading-relaxed">
             Have questions about our weather platform? Need technical support? We'd love to hear from you and help with
             your weather intelligence needs.
           </p>
@@ -74,17 +59,17 @@ export default function ContactPage() {
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Contact Information */}
           <div className="lg:col-span-1 space-y-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
-              <h2 className="text-xl font-semibold text-white mb-6">Contact Information</h2>
+            <div className=" backdrop-blur-sm rounded-xl p-6 shadow-sm">
+              <h2 className="text-xl font-semibold  mb-6">Contact Information</h2>
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10  rounded-lg flex items-center justify-center">
                     <MapPin className="w-5 h-5 text-blue-400" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-white mb-1">Address</h3>
-                    <p className="text-slate-400 text-sm leading-relaxed">
+                    <h3 className="font-medium  mb-1">Address</h3>
+                    <p className=" text-sm leading-relaxed">
                       123 Weather Ave
                       <br />
                       Seattle, WA 98101
@@ -99,9 +84,9 @@ export default function ContactPage() {
                     <Phone className="w-5 h-5 text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-white mb-1">Phone</h3>
-                    <p className="text-slate-400 text-sm">+1 (555) 123-WEATHER</p>
-                    <p className="text-slate-400 text-sm">+1 (555) 123-9328437</p>
+                    <h3 className="font-medium  mb-1">Phone</h3>
+                    <p className=" text-sm">+1 (555) 123-WEATHER</p>
+                    <p className=" text-sm">+1 (555) 123-9328437</p>
                   </div>
                 </div>
 
@@ -110,9 +95,9 @@ export default function ContactPage() {
                     <Mail className="w-5 h-5 text-green-400" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-white mb-1">Email</h3>
-                    <p className="text-slate-400 text-sm">support@skyweather.com</p>
-                    <p className="text-slate-400 text-sm">info@skyweather.com</p>
+                    <h3 className="font-medium  mb-1">Email</h3>
+                    <p className=" text-sm">support@skyweather.com</p>
+                    <p className=" text-sm">info@skyweather.com</p>
                   </div>
                 </div>
 
@@ -121,27 +106,27 @@ export default function ContactPage() {
                     <Clock className="w-5 h-5 text-orange-400" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-white mb-1">Business Hours</h3>
-                    <p className="text-slate-400 text-sm">Monday - Friday: 9:00 AM - 6:00 PM PST</p>
-                    <p className="text-slate-400 text-sm">Weekend: Emergency support only</p>
+                    <h3 className="font-medium  mb-1">Business Hours</h3>
+                    <p className=" text-sm">Monday - Friday: 9:00 AM - 6:00 PM PST</p>
+                    <p className=" text-sm">Weekend: Emergency support only</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
-              <h3 className="font-semibold text-white mb-4">Quick Links</h3>
+            <div className=" backdrop-blur-sm rounded-xl p-6  shadow-sm">
+              <h3 className="font-semibold  mb-4">Quick Links</h3>
               <div className="space-y-3">
-                <Link href="/about" className="block text-slate-400 hover:text-blue-400 transition-colors text-sm">
+                <Link href="/about" className="block hover:text-blue-400 transition-colors text-sm">
                   About SKY Guard Weather
                 </Link>
-                <Link href="#" className="block text-slate-400 hover:text-blue-400 transition-colors text-sm">
+                <Link href="#" className="block hover:text-blue-400 transition-colors text-sm">
                   API Documentation
                 </Link>
-                <Link href="#" className="block text-slate-400 hover:text-blue-400 transition-colors text-sm">
+                <Link href="#" className="block hover:text-blue-400 transition-colors text-sm">
                   Privacy Policy
                 </Link>
-                <Link href="#" className="block text-slate-400 hover:text-blue-400 transition-colors text-sm">
+                <Link href="#" className="block hover:text-blue-400 transition-colors text-sm">
                   Terms of Service
                 </Link>
               </div>
@@ -150,13 +135,13 @@ export default function ContactPage() {
 
           {/* Contact Form */}
           <div className="lg:col-span-2 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50">
-              <h2 className="text-2xl font-semibold text-white mb-6">Send us a Message</h2>
+            <div className=" backdrop-blur-sm rounded-xl p-8 shadow-sm">
+              <h2 className="text-2xl font-semibold  mb-6">Send us a Message</h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-slate-300">
+                    <Label htmlFor="name" className="">
                       Full Name
                     </Label>
                     <Input
@@ -165,12 +150,12 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-blue-400"
+                      className=" shadow-sm   focus:border-blue-400"
                       placeholder="Your full name"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-slate-300">
+                    <Label htmlFor="email" className="">
                       Email Address
                     </Label>
                     <Input
@@ -180,14 +165,14 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-blue-400"
+                      className=" shadow-sm  focus:border-blue-400"
                       placeholder="your.email@example.com"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="subject" className="text-slate-300">
+                  <Label htmlFor="subject" className="">
                     Subject
                   </Label>
                   <Input
@@ -196,13 +181,13 @@ export default function ContactPage() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-blue-400"
+                    className=" shadow-sm  text-slate-400 focus:border-blue-400"
                     placeholder="What's this about?"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message" className="text-slate-300">
+                  <Label htmlFor="message" className="">
                     Message
                   </Label>
                   <Textarea
@@ -212,7 +197,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-blue-400 resize-none"
+                    className=" shadow-sm  text-slate-400 focus:border-blue-400 resize-none"
                     placeholder="Tell us more about your inquiry..."
                   />
                 </div>
@@ -220,7 +205,7 @@ export default function ContactPage() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 weather-button"
+                  className="w-full bg-blue-600 hover:bg-blue-700  font-medium py-3 weather-button"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">
