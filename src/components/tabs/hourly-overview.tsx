@@ -4,7 +4,6 @@ import { useState } from "react"
 import { XAxis, YAxis, ResponsiveContainer, Area, AreaChart } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Cloud, Sun, CloudRain } from "lucide-react"
 
 const hourlyData = [
@@ -27,23 +26,6 @@ export default function HourlyOverview() {
 
   return (
     <div className="space-y-6">
-      {/* Toggle Buttons */}
-      {/* <div className="flex justify-end gap-2">
-        <Button
-          variant={viewMode === "chart" ? "default" : "outline"}
-          size="sm"
-          onClick={() => setViewMode("chart")}
-        >
-          Chart View
-        </Button>
-        <Button
-          variant={viewMode === "list" ? "default" : "outline"}
-          size="sm"
-          onClick={() => setViewMode("list")}
-        >
-          List View
-        </Button>
-      </div> */}
 
       {/* LIST VIEW */}
       {viewMode === "list" && (

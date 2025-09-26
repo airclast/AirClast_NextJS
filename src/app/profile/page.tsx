@@ -6,11 +6,13 @@ import { NotificationPreferencesCard } from "@/components/notification-preferenc
 import { LocationManagementCard } from "@/components/location-management-card"
 import { AccountSettingsCard } from "@/components/account-settings-card"
 import { mockUser, mockUserLocations } from "@/lib/mock-data"
+import { DashboardSidebar } from "@/components/dashboard-sidebar"
 
 export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <DashboardSidebar />
 
       <main className="container mx-auto px-4 py-8 space-y-8">
         <ProfileHeader user={mockUser} />

@@ -43,7 +43,7 @@ export default function WeatherDashboard() {
     const content = (() => {
       switch (activeTab) {
         case "overview":
-          return <HourlyOverview viewMode={viewMode} />
+          return <HourlyOverview  />
         case "precipitation":
           return <PrecipitationTab viewMode={viewMode} />
         case "wind":
@@ -59,7 +59,7 @@ export default function WeatherDashboard() {
         case "feels-like":
           return <FeelsLikeTab viewMode={viewMode} />
         default:
-          return <HourlyOverview viewMode={viewMode} />
+          return <HourlyOverview  />
       }
     })()
 

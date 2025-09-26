@@ -70,7 +70,7 @@ export function InteractiveMap({ stations, airQualityData, tempoData, userLocati
 
         {/* Main Content */}
         <main
-          className="overflow-y-auto py-8 px-4"
+          className=" py-8 px-4"
           style={{
             marginLeft: sidebarWidth,
             marginTop: headerHeight,

@@ -96,7 +96,9 @@ export default function DashboardPage() {
             <DataQualityPanel tempoData={tempoData} />
           </div>
         </main>
+
       </div>
+      
     </div>
   );
 }
