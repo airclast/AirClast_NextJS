@@ -67,12 +67,12 @@ const sidebarItems = [
   //   icon: Sun,
   //   description: "UV radiation levels",
   // },
-  {
-    title: "Interactive Map",
-    href: "/map",
-    icon: Map,
-    description: "Weather radar & maps",
-  },
+  // {
+  //   title: "Interactive Map",
+  //   href: "/map",
+  //   icon: Map,
+  //   description: "Weather radar & maps",
+  // },
   {
     title: "Alerts",
     href: "/notifications",

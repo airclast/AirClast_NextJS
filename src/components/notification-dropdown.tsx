@@ -1,26 +1,24 @@
 "use client";
+
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuLabel,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import type { Notification } from "@/lib/types";
 import { Bell, Settings, AlertTriangle, Info } from "lucide-react";
+import type { Notification } from "@/lib/types";
 import { formatTimestamp } from "@/lib/utils";
 
 interface NotificationDropdownProps {
   notifications: Notification[];
 }
 
-export function NotificationDropdown({
-  notifications,
-}: NotificationDropdownProps) {
+export function NotificationDropdown({ notifications }: NotificationDropdownProps) {
   const [notificationList, setNotificationList] = useState(notifications);
   const unreadCount = notificationList.filter((n) => !n.isRead).length;
   const recentNotifications = notificationList.slice(0, 5);
@@ -42,14 +40,14 @@ export function NotificationDropdown({
       case "system-maintenance":
         return <Settings className="w-4 h-4 text-gray-500" />;
       default:
-        return <Bell className="w-4 h-4" />;
+        return <Bell className="w-4 h-4 text-gray-500" />;
     }
   };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="relative">
+        <button className="relative p-2 rounded-full hover:bg-muted">
           <Bell className="h-5 w-5" />
           {unreadCount > 0 && (
             <Badge
@@ -59,9 +57,10 @@ export function NotificationDropdown({
               {unreadCount > 9 ? "9+" : unreadCount}
             </Badge>
           )}
-        </Button>
+        </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-80">
+
+      <DropdownMenuContent align="end" className="w-80 z-[9999]">
         <DropdownMenuLabel className="font-semibold">
           Notifications
           {unreadCount > 0 && (
@@ -70,7 +69,9 @@ export function NotificationDropdown({
             </Badge>
           )}
         </DropdownMenuLabel>
+
         <DropdownMenuSeparator />
+
         {recentNotifications.length === 0 ? (
           <div className="p-4 text-center text-muted-foreground">
             <Bell className="w-8 h-8 mx-auto mb-2 opacity-50" />
@@ -105,6 +106,7 @@ export function NotificationDropdown({
                 </div>
               </DropdownMenuItem>
             ))}
+
             <DropdownMenuSeparator />
             <DropdownMenuItem className="text-center justify-center">
               <a href="/notifications" className="text-sm text-primary">

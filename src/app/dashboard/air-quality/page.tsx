@@ -119,17 +119,16 @@ export default function AirQualityPage() {
 
   return (
     <div className="flex min-h-screen bg-background">
-      {/* Sidebar - Fixed on the left */}
-      <div className=" fixed top-0 left-0 h-full w-64 border-r border-border bg-card z-40">
-        <DashboardSidebar />
-      </div>
+       {/* Header */}
+              <Header />
+            {/* Sidebar */}
+            <div className="w-64 border-r border-border bg-card sticky top-0 h-screen">
+      
+            <DashboardSidebar />
+            </div>
 
       {/* Main Section */}
-      <div className="flex-1 lg:ml-64 flex flex-col">
-        {/* Header - Fixed on top */}
-        <div className="fixed top-0 left-0 lg:left-64 right-0 z-40 border-b border-border bg-background">
-          <Header />
-        </div>
+      <div className="flex-1  flex flex-col">
 
         <div className="flex-1 mt-16 p-8 space-y-12 overflow-y-auto">
           <motion.div
