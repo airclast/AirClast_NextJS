@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import Link from "next/link"
 
 const weatherCards = [
   {
@@ -125,23 +126,26 @@ export default function WeatherDetailsCarousel() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const cardsPerView = 4
 
-  // Auto-play functionality
   useEffect(() => {
     if (!isAutoPlaying) return
-
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + cardsPerView >= weatherCards.length ? 0 : prev + cardsPerView))
+      setCurrentIndex((prev) =>
+        prev + cardsPerView >= weatherCards.length ? 0 : prev + cardsPerView
+      )
     }, 5000)
-
     return () => clearInterval(interval)
   }, [isAutoPlaying, cardsPerView])
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + cardsPerView >= weatherCards.length ? 0 : prev + cardsPerView))
+    setCurrentIndex((prev) =>
+      prev + cardsPerView >= weatherCards.length ? 0 : prev + cardsPerView
+    )
   }
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? Math.max(0, weatherCards.length - cardsPerView) : prev - cardsPerView))
+    setCurrentIndex((prev) =>
+      prev === 0 ? Math.max(0, weatherCards.length - cardsPerView) : prev - cardsPerView
+    )
   }
 
   const goToSlide = (index: number) => {
@@ -157,25 +161,33 @@ export default function WeatherDetailsCarousel() {
       case "feels-like":
         return (
           <div className="relative h-2 rounded-full overflow-hidden">
-            <div className={`absolute inset-0 bg-gradient-to-r ${card.color} rounded-full w-3/4`}></div>
+            <div
+              className={`absolute inset-0 bg-gradient-to-r ${card.color} rounded-full w-3/4`}
+            ></div>
             <div className="absolute right-0 top-0 w-3 h-3 bg-white rounded-full transform -translate-y-0.5"></div>
           </div>
         )
-
       case "wind-compass":
         return (
           <div className="relative w-16 h-16 mx-auto">
-            <div className="absolute inset-0 border-2  rounded-full"></div>
+            <div className="absolute inset-0 border-2 rounded-full"></div>
             <div className="absolute inset-2 bg-blue-500 rounded-full flex items-center justify-center">
               <div className="w-0 h-0 border-l-2 border-r-2 border-b-4 border-transparent border-b-white transform rotate-45"></div>
             </div>
-            <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 text-xs text-slate-400">N</div>
-            <div className="absolute top-1/2 -right-2 transform -translate-y-1/2 text-xs text-slate-400">E</div>
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-xs text-slate-400">S</div>
-            <div className="absolute top-1/2 -left-2 transform -translate-y-1/2 text-xs text-slate-400">W</div>
+            <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 text-xs text-slate-400">
+              N
+            </div>
+            <div className="absolute top-1/2 -right-2 transform -translate-y-1/2 text-xs text-slate-400">
+              E
+            </div>
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-xs text-slate-400">
+              S
+            </div>
+            <div className="absolute top-1/2 -left-2 transform -translate-y-1/2 text-xs text-slate-400">
+              W
+            </div>
           </div>
         )
-
       case "humidity-bars":
         return (
           <div className="flex items-end gap-1 h-8">
@@ -188,7 +200,6 @@ export default function WeatherDetailsCarousel() {
             ))}
           </div>
         )
-
       case "uv-gauge":
       case "aqi-gauge":
         return (
@@ -201,7 +212,6 @@ export default function WeatherDetailsCarousel() {
             ></div>
           </div>
         )
-
       case "visibility-bars":
         return (
           <div className="space-y-1">
@@ -210,15 +220,15 @@ export default function WeatherDetailsCarousel() {
             <div className="h-1 bg-green-500 rounded-full w-3/5"></div>
           </div>
         )
-
       case "pressure-line":
         return (
           <div className="relative h-2 bg-slate-700 rounded-full overflow-hidden">
-            <div className={`absolute inset-0 bg-gradient-to-r ${card.color} rounded-full w-3/5`}></div>
+            <div
+              className={`absolute inset-0 bg-gradient-to-r ${card.color} rounded-full w-3/5`}
+            ></div>
             <div className="absolute right-8 top-0 w-3 h-3 bg-white rounded-full transform -translate-y-0.5"></div>
           </div>
         )
-
       case "sun-arc":
       case "moon-arc":
         return (
@@ -230,13 +240,17 @@ export default function WeatherDetailsCarousel() {
                 strokeWidth="2"
                 fill="none"
               />
-              <circle cx={card.chart === "sun-arc" ? "25" : "75"} cy="32" r="3" fill="white" />
+              <circle
+                cx={card.chart === "sun-arc" ? "25" : "75"}
+                cy="32"
+                r="3"
+                fill="white"
+              />
               <circle cx="10" cy="40" r="2" fill="#64748B" />
               <circle cx="90" cy="40" r="2" fill="#64748B" />
             </svg>
           </div>
         )
-
       default:
         return null
     }
@@ -248,18 +262,7 @@ export default function WeatherDetailsCarousel() {
       <div className="flex items-center justify-between py-4">
         <div className="flex items-center gap-4">
           <h2 className="text-2xl font-semibold">Weather details</h2>
-          <span className="">1:00 PM</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-            className="text-slate-400 hover:"
-          >
-            {isAutoPlaying ? "⏸️ Pause" : "▶️ Play"}
-          </Button>
-          <div className="text-blue-400 hover:text-blue-300 cursor-pointer">SUGGESTIONS FOR YOUR DAY →</div>
+          <span>1:00 PM</span>
         </div>
       </div>
 
@@ -271,7 +274,7 @@ export default function WeatherDetailsCarousel() {
           size="sm"
           onClick={prevSlide}
           disabled={currentIndex === 0}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10  backdrop-blur-sm border border-slate-700 hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 backdrop-blur-sm border border-slate-700 hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <ChevronLeft className="w-4 h-4" />
         </Button>
@@ -281,7 +284,7 @@ export default function WeatherDetailsCarousel() {
           size="sm"
           onClick={nextSlide}
           disabled={currentIndex + cardsPerView >= weatherCards.length}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10  backdrop-blur-sm border border-slate-700 hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 backdrop-blur-sm border border-slate-700 hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <ChevronRight className="w-4 h-4" />
         </Button>
@@ -290,71 +293,98 @@ export default function WeatherDetailsCarousel() {
         <div className="overflow-hidden mx-8">
           <div
             className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${(currentIndex / cardsPerView) * 100}%)` }}
+            style={{
+              transform: `translateX(-${(currentIndex / cardsPerView) * 100}%)`,
+            }}
           >
             {weatherCards.map((card, index) => (
               <div key={index} className="w-1/4 flex-shrink-0 px-2">
-                <Card className=" weather-card-hover h-full p-4">
-                  <div className="space-y-3">
-                    {/* Card Header */}
-                    <div className="flex items-center justify-between">
-                      <h3 className=" text-sm font-medium">{card.title}</h3>
-                      {card.statusIcon && <span className="text-lg">{card.statusIcon}</span>}
-                    </div>
-
-                    {/* Main Value */}
-                    <div className="space-y-2">
-                      {card.value && <div className="text-2xl font-bold ">{card.value}</div>}
-
-                      {/* Additional Info */}
-                      {card.direction && <div className="text-sm ">{card.direction}</div>}
-                      {card.gust && <div className="text-sm ">Wind Gust: {card.gust}</div>}
-                      {card.dewPoint && <div className="text-sm ">Dew point: {card.dewPoint}</div>}
-                      {card.actualTemp && <div className="text-sm ">Temperature: {card.actualTemp}</div>}
-                      {card.timeframe && <div className="text-xs ">{card.timeframe}</div>}
-                      {card.time && <div className="text-xs ">{card.time}</div>}
-                    </div>
-
-                    {/* Status */}
-                    {card.status && <div className="text-sm ">{card.status}</div>}
-
-                    {/* Sun/Moon specific layout */}
-                    {(card.title === "Sun" || card.title === "Moon") && (
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-sm">
-                          <span className="">{card.title === "Sun" ? "Sunrise" : "Moonrise"}</span>
-                          <span className="">{card.title === "Sun" ? card.sunrise : card.moonrise}</span>
-                        </div>
-                        <div className="flex justify-between text-sm">
-                          <span className="">{card.title === "Sun" ? "Sunset" : "Moonset"}</span>
-                          <span className="">{card.title === "Sun" ? card.sunset : card.moonset}</span>
-                        </div>
-                        <div className="text-center text-xs  mt-2">{card.duration}</div>
+                <Link
+                  href={`/weather/${card.title.toLowerCase().replace(/\s+/g, "-")}`}
+                  className="block h-full"
+                >
+                  <Card className="weather-card-hover h-full p-4">
+                    <div className="space-y-3">
+                      {/* Card Header */}
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-sm font-medium">{card.title}</h3>
+                        {card.statusIcon && <span className="text-lg">{card.statusIcon}</span>}
                       </div>
-                    )}
 
-                    {/* Visual Elements */}
-                    {renderChart(card)}
+                      {/* Main Value */}
+                      <div className="space-y-2">
+                        {card.value && (
+                          <div className="text-2xl font-bold">{card.value}</div>
+                        )}
+                        {card.direction && <div className="text-sm">{card.direction}</div>}
+                        {card.gust && (
+                          <div className="text-sm">Wind Gust: {card.gust}</div>
+                        )}
+                        {card.dewPoint && (
+                          <div className="text-sm">Dew point: {card.dewPoint}</div>
+                        )}
+                        {card.actualTemp && (
+                          <div className="text-sm">Temperature: {card.actualTemp}</div>
+                        )}
+                        {card.timeframe && <div className="text-xs">{card.timeframe}</div>}
+                        {card.time && <div className="text-xs">{card.time}</div>}
+                      </div>
 
-                    {/* Description */}
-                    {card.description && (
-                      <p className="text-xs text-slate-400 leading-relaxed line-clamp-3">{card.description}</p>
-                    )}
-                  </div>
-                </Card>
+                      {/* Status */}
+                      {card.status && <div className="text-sm">{card.status}</div>}
+
+                      {/* Sun/Moon specific */}
+                      {(card.title === "Sun" || card.title === "Moon") && (
+                        <div className="space-y-2">
+                          <div className="flex justify-between text-sm">
+                            <span>
+                              {card.title === "Sun" ? "Sunrise" : "Moonrise"}
+                            </span>
+                            <span>
+                              {card.title === "Sun" ? card.sunrise : card.moonrise}
+                            </span>
+                          </div>
+                          <div className="flex justify-between text-sm">
+                            <span>
+                              {card.title === "Sun" ? "Sunset" : "Moonset"}
+                            </span>
+                            <span>
+                              {card.title === "Sun" ? card.sunset : card.moonset}
+                            </span>
+                          </div>
+                          <div className="text-center text-xs mt-2">
+                            {card.duration}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Visual */}
+                      {renderChart(card)}
+
+                      {/* Description */}
+                      {card.description && (
+                        <p className="text-xs text-slate-400 leading-relaxed line-clamp-3">
+                          {card.description}
+                        </p>
+                      )}
+                    </div>
+                  </Card>
+                </Link>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Slide Indicators */}
+        {/* Indicators */}
         <div className="flex justify-center gap-2 mt-6">
           {Array.from({ length: totalSlides }).map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                currentSlide === index ? "bg-blue-500 w-8" : "bg-slate-600 hover:bg-slate-500"
+                currentSlide === index
+                  ? "bg-blue-500 w-8"
+                  : "bg-slate-600 hover:bg-slate-500"
               }`}
             />
           ))}

@@ -62,7 +62,6 @@ import Footer from "@/components/footer";
 import WeatherMap from "@/components/weather-map";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import HourlyOverview from "@/components/tabs/hourly-overview";
 
 export default function HomePage() {
   const messages = ["Ask me about weather!", "I'm here to assist you.", "Let's chat 💬"];
