@@ -77,8 +77,8 @@ export default function WeatherMap() {
     setCurrentTimeIndex(index)
   }
 
-  const handleZoomIn = () => setZoomLevel((prev) => Math.min(prev + 1, 15))
-  const handleZoomOut = () => setZoomLevel((prev) => Math.max(prev - 1, 3))
+  // const handleZoomIn = () => setZoomLevel((prev) => Math.min(prev + 1, 15))
+  // const handleZoomOut = () => setZoomLevel((prev) => Math.max(prev - 1, 3))
 
   useEffect(() => {
     return () => {
@@ -106,7 +106,7 @@ export default function WeatherMap() {
 
        
         {/* Weather Layer Toolbar */}
-        <div className="absolute top-4 left-4 z-10 flex bg-black w-[98%]  rounded-lg py-4 gap-1 ">
+        <div className="absolute top-4 left-4 z-10 flex bg-gradient-to-r from-[#b36982] via-[#b36982] to-[#c49061]  w-[98%]  rounded-lg py-4 gap-1 ">
           {weatherLayers.map((layer) => (
             <Button
               key={layer.id}
