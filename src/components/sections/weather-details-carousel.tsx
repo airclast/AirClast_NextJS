@@ -290,7 +290,7 @@ export default function WeatherDetailsCarousel() {
         </Button>
 
         {/* Cards Container */}
-        <div className="overflow-hidden mx-8">
+        <div className="overflow-hidden mx-auto w-[90%]">
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{
@@ -303,7 +303,7 @@ export default function WeatherDetailsCarousel() {
                   href={`/weather/${card.title.toLowerCase().replace(/\s+/g, "-")}`}
                   className="block h-full"
                 >
-                  <Card className="weather-card-hover h-full p-4">
+                  <Card className="weather-card-hover h-full p-4 w-[300px]">
                     <div className="space-y-3">
                       {/* Card Header */}
                       <div className="flex items-center justify-between">

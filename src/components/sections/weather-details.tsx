@@ -123,7 +123,7 @@ export default function WeatherDetails() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <h2 className="text-2xl font-semibold text-white">Weather details</h2>
+          <h2 className="text-2xl font-semibold ">Weather details</h2>
           <span className="text-slate-400">1:00 PM</span>
         </div>
         <div className="text-blue-400 hover:text-blue-300 cursor-pointer">SUGGESTIONS FOR YOUR DAY →</div>
