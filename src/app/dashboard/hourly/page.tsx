@@ -257,7 +257,7 @@ export default function HourlyForecastPage() {
                   variant="ghost"
                   className={`transition-all duration-300 rounded-lg px-6 py-2 ${
                     timeRange === 24
-                      ? "bg-primary text-primary-foreground shadow-sm"
+                      ? "bg-yellow-500 text-black hover:bg-yellow-400"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -268,7 +268,7 @@ export default function HourlyForecastPage() {
                   variant="ghost"
                   className={`transition-all duration-300 rounded-lg px-6 py-2 ${
                     timeRange === 48
-                      ? "bg-primary text-primary-foreground shadow-sm"
+                      ? "bg-yellow-500 text-black hover:bg-yellow-400"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -302,8 +302,8 @@ export default function HourlyForecastPage() {
                       onClick={() => setSelectedMetric(metric.id)}
                       className={`flex items-center gap-3 transition-all duration-300 rounded-xl px-6 py-3 border ${
                         selectedMetric === metric.id
-                          ? "bg-primary text-primary-foreground border-primary shadow-md"
-                          : "bg-card text-foreground border-border hover:border-primary/30 hover:shadow-sm"
+                          ? "bg-yellow-500 text-black hover:bg-yellow-400 shadow-md"
+                          : "bg-card text-foreground hover:text-white border-border hover:border-primary/30 hover:shadow-sm"
                       }`}
                     >
                       <IconComponent className="h-4 w-4" />
@@ -320,7 +320,7 @@ export default function HourlyForecastPage() {
                 variant="ghost"
                 className={`flex items-center gap-2 transition-all duration-300 rounded-lg px-6 py-2 ${
                   viewMode === "graph"
-                    ? "bg-primary text-primary-foreground shadow-sm"
+                    ? "bg-yellow-500 text-black hover:bg-yellow-400"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -332,7 +332,7 @@ export default function HourlyForecastPage() {
                 variant="ghost"
                 className={`flex items-center gap-2 transition-all duration-300 rounded-lg px-6 py-2 ${
                   viewMode === "list"
-                    ? "bg-primary text-primary-foreground shadow-sm"
+                    ? "bg-yellow-500 text-black hover:bg-yellow-400"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
